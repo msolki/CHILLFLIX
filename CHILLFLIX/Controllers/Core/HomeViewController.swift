@@ -17,7 +17,7 @@ enum Sections: Int {
 
 class HomeViewController: UIViewController {
     
-    let sectionTitles: [String] = ["Trending Movies", "Popular", "Trending Tv", "Upcoming Movies", "Top rated"]
+    let sectionTitles: [String] = ["Trending Movies", "Popular", "Trending TV", "Upcoming Movies", "Top Rated"]
     
     private var randomTrendingMovie: Title?
     private var headerView: TitleHeaderUIView?

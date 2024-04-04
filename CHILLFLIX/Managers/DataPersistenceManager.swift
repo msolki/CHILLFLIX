@@ -4,20 +4,26 @@
 //
 //  Created by Mohammad Solki on 28/03/24.
 //
-
 import CoreData
 import UIKit
 
+/// A manager class responsible for handling data persistence operations.
 class DataPersistenceManager {
     
+    /// An enumeration representing the possible errors that can occur during database operations.
     enum DatabaseError: Error {
         case failedToSaveData
         case failedToFetachData
         case failedToDeleteData
     }
     
+    /// The shared instance of the `DataPersistenceManager`.
     static let shared = DataPersistenceManager()
     
+    /// Downloads a title and saves it to the database.
+    /// - Parameters:
+    ///   - model: The `Title` object to be downloaded and saved.
+    ///   - completion: A closure that gets called when the download and save operation is completed. It returns a `Result` object indicating whether the operation was successful or not.
     func downloadTitleWith(model: Title, completion: @escaping (Result<Void, Error>) -> ()) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -44,7 +50,8 @@ class DataPersistenceManager {
         }
     }
     
-    
+    /// Fetches all titles from the database.
+    /// - Parameter completion: A closure that gets called when the fetch operation is completed. It returns a `Result` object containing an array of `TitleItem` objects if the operation was successful, or an error if it failed.
     func fetchTitlesFromDatabase(completion: @escaping (Result<[TitleItem], Error>) -> ()) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -61,6 +68,10 @@ class DataPersistenceManager {
         }
     }
     
+    /// Deletes a title from the database.
+    /// - Parameters:
+    ///   - model: The `TitleItem` object to be deleted.
+    ///   - completion: A closure that gets called when the delete operation is completed. It returns a `Result` object indicating whether the operation was successful or not.
     func deleteTitleWith(model: TitleItem, completion: @escaping (Result<Void, Error>) -> ()) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -78,7 +89,7 @@ class DataPersistenceManager {
         
     }
     
-    
+    /// Private initializer to prevent creating instances of `DataPersistenceManager` from outside the class.
     private init() {}
     
 }

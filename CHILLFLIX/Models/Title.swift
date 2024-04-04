@@ -7,10 +7,12 @@
 
 import Foundation
 
+/// Represents the response for trending titles.
 struct TrendingTitleResponse: Codable {
     let results: [Title]
 }
 
+/// Represents a title.
 struct Title: Codable {
     let id: Int
     let media_type: String?
@@ -22,7 +24,7 @@ struct Title: Codable {
     let release_date: String?
     let vote_average: Double
     
-    
+    /// Coding keys used for encoding and decoding.
     enum CodingKeys: String, CodingKey {
         case id
         case media_type

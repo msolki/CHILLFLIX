@@ -4,15 +4,16 @@
 //
 //  Created by Mohammad Solki on 28/03/24.
 //
-
 import UIKit
 import SDWebImage
 
+/// A custom table view cell for displaying title information.
 class TitleTableViewCell: UITableViewCell {
     
-    
+    /// The reuse identifier for the cell.
     static let identifier = "TitleTableViewCell"
     
+    /// The button for playing the title.
     private let playTitleButton = { () -> UIButton in
         let playButton = UIButton()
         playButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
@@ -20,6 +21,7 @@ class TitleTableViewCell: UITableViewCell {
         return playButton
     }()
     
+    /// The label for displaying the title.
     private let titleLabel = { () -> UILabel in
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -27,7 +29,7 @@ class TitleTableViewCell: UITableViewCell {
         return label
     }()
     
-    
+    /// The image view for displaying the title poster.
     private let titlePosterUIImageView = { () -> UIImageView in
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -47,6 +49,7 @@ class TitleTableViewCell: UITableViewCell {
         fatalError()
     }
     
+    /// Applies the necessary constraints for the subviews.
     func applyConstraints() {
         let titlesPosterUIImageViewConstraints = [
             titlePosterUIImageView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
@@ -60,12 +63,12 @@ class TitleTableViewCell: UITableViewCell {
             titleLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor , constant: 6)
         ]
         
-        
         NSLayoutConstraint.activate(titlesPosterUIImageViewConstraints)
         NSLayoutConstraint.activate(titleLabelContraints)
-        
     }
     
+    /// Configures the cell with the given title view model.
+    /// - Parameter model: The title view model containing the title information.
     public func configure(with model: TitleViewModel) {
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(model.posterURL)") else { return }
         titlePosterUIImageView.sd_setImage(with: url)

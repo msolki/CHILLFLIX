@@ -7,7 +7,11 @@
 
 import Foundation
 
+/// Represents a view model for a title.
 struct TitleViewModel {
+    /// The name of the title.
     let titleName: String
+    
+    /// The URL of the poster image for the title.
     let posterURL: String
 }

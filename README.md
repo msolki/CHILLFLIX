@@ -14,3 +14,6 @@ Browse and view trailers of movies and TV shows.
 
 ## Acknowledgments
 - Special thanks to [Hitesh Suthar](https://github.com/hiteshsuthar1410/NetflixClone.git), [amrhossam96](https://github.com/amrhossam96), and [freeCodecmap](https://github.com/freeCodeCamp) for the tutorial that inspired this project.
+
+## Licensing
+- The project is licenced under MIT License. Full text is available in LICENCE.md file.
